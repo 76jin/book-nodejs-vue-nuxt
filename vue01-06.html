@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>vue 시작하기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <h1>[Vue] computed, watch, methods</h1>
+    <div id="start">
+        <div>
+            <h2>computed: 게산된 속성 예제</h2>
+            <h3>{{ calcDate }}</h3>
+            <h4>{{ calcDate }}</h4>
+            <h5>{{ calcDate }}</h5>
+        </div>
+        <div>
+            <h2>methods 예제</h2>
+            <h3>{{ calcDate20() }}</h3>
+            <h4>{{ calcDate20() }}</h4>
+            <h5>{{ calcDate20() }}</h5>
+        </div>
+        <div>
+            <h2>watch: 감시자 예제</h2>
+            <input type="text" name="" v-model:value="value">
+            <h3>sum: {{ sum }}</h3>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#start', // 애플리케이션 루트 
+            data() {
+                return {
+                    date: new Date(),
+                    value: 1,
+                    sum: 1
+                }
+            },
+            computed: {
+                calcDate: function () {
+                    return `${this.date.getFullYear()}-${parseInt(this.date.getMonth())+1}-${this.date.getDay()}`
+                }
+            },
+            methods: {
+                calcDate20: function () {
+                    return `${this.date.getFullYear()}-${parseInt(this.date.getMonth())+1}-${this.date.getDay()}`
+                }
+            },
+            watch: {
+                value: function (d) { // 변경된 값을 인자로 받음 
+                    if (!isNaN(d)) {
+                        this.sum += parseInt(d)
+                    }
+                    this.value = 0
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
