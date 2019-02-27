@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>vue 시작하기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <h1>vue 시작하기!</h1>
+    <div id="start">
+        <p>1. 단방향 바인딩 예제 (v-bind:변수명)</p>
+        <input type="text" name="" v-bind:value="text1">
+        <h3>{{text1}}</h3>
+
+        <p>2. 양방향 바인딩 예제 (v-model:변수명)</p>
+        <input type="text" name="" v-model:value="text2">
+        <h3>{{text2}}</h3>
+    </div>
+
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#start', // 애플리케이션 루트 
+            data() {
+                return {
+                    text1: 'hello world 04 v-bind',
+                    text2: 'hello world 04 v-model'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
